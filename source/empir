@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+@php_bin@ -dphar.readonly=0 @php_dir@/empir.php $*

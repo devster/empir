@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<package version="2.0" xmlns="http://pear.php.net/dtd/package-2.0"
+    xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
+<name>empir</name>
+<channel>pear.devster.org</channel>
+<summary>PHP tool to play with PHAR.</summary>
+<description>Empir is an open source PHP Windows/Unix tool to manage PHAR (PHP Archive). 
+It allows to create a PHAR from an entire php application, extract, convert, compress and decompress PHAR files. 
+It consists of one simple and robust command line PHP script.
+</description>
+<lead>
+	<name>Jeremy Perret</name>
+	<user>slouby1</user>
+	<email>jeremy@devster.org</email>
+	<active>yes</active>
+</lead>
+<date>2011-03-29</date>
+<version>
+	<release>1.0.1</release>
+	<api>1.0.1</api>
+</version>
+<stability>
+	<release>stable</release>
+	<api>stable</api>
+</stability>
+<license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+<notes>
+* enhanced detection of terminal color support.
+* remove empty and not used function.
+* enhanced PEAR packaging, enhanced installation.
+</notes>
+<contents>
+	<dir name="/">
+		<file name="empir.bat" role="script">
+			<tasks:replace from="@php_dir@" to="php_dir" type="pear-config" />
+			<tasks:replace from="@php_bin@" to="php_bin" type="pear-config" />
+			<tasks:windowseol/>
+		</file>
+		<file name="empir" role="script">
+			<tasks:replace from="@php_bin@" to="php_bin" type="pear-config" />
+			<tasks:replace from="@php_dir@" to="php_dir" type="pear-config" />
+			<tasks:unixeol/>
+		</file>
+		<file name="empir.php" role="php">
+			<tasks:replace from="@version@" to="version" type="package-info" />
+			<tasks:replace from="@date@" to="date" type="package-info" />
+		</file>
+	</dir>
+</contents>
+<dependencies>
+	<required>
+		<php>
+			<min>5.3.0</min>
+		</php>
+		<pearinstaller>
+			<min>1.4.0</min>
+		</pearinstaller>
+	</required>
+</dependencies>
+<phprelease>
+	<installconditions>
+	   <os>
+			<name>windows</name>
+	   </os>
+	</installconditions>
+	<filelist>
+		<install as="empir.bat" name="empir.bat" />
+		<install as="empir.php" name="empir.php" />
+		<ignore name="empir" />
+	</filelist>
+</phprelease>
+<phprelease>
+	 <filelist>
+		<install as="empir" name="empir" />
+		<install as="empir.php" name="empir.php" />
+		<ignore name="empir.bat" />
+	 </filelist>
+</phprelease>
+<changelog>
+	<release>
+		<version>
+			<release>1.0.0</release>
+			<api>1.0.0</api>
+		</version>
+		<stability>
+			<release>stable</release>
+			<api>stable</api>
+		</stability>
+		<date>2010-10-14</date>
+		<license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+		<notes>-</notes>
+	</release>
+</changelog>
+</package>
